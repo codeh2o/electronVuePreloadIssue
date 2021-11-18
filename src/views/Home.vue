@@ -21,7 +21,7 @@ export default {
       const { port1 } = new MessageChannel();
       // eslint-disable-next-line no-undef
       ipcRenderer.postMessage('port', { message: 'hello' }, [port1]);
-    }, 10000);
+    }, 10);
   },
 };
 </script>
