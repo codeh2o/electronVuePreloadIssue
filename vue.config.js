@@ -1,8 +1,8 @@
 module.exports = {
-  // transpileDependencies: ['vuetify'],
+  transpileDependencies: ['vuetify'],
   pluginOptions: {
     electronBuilder: {
-      nodeIntegration: true,
+      nodeIntegration: false,
       builderOptions: {
         // Add also your database location
         extraResources: ['src', 'src/res/'],

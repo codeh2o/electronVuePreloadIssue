@@ -15,5 +15,13 @@ export default {
   components: {
     HelloWorld,
   },
+  mounted() {
+    setTimeout(() => {
+      // eslint-disable-next-line no-undef
+      const { port1 } = new MessageChannel();
+      // eslint-disable-next-line no-undef
+      ipcRenderer.postMessage('port', { message: 'hello' }, [port1]);
+    }, 10000);
+  },
 };
 </script>
