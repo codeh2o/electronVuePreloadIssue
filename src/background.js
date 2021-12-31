@@ -1,17 +1,10 @@
-import { app, protocol, BrowserWindow, ipcMain } from 'electron';
+import { app, protocol, BrowserWindow, ipcMain, } from 'electron';
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib';
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer';
 
 const path = require('path');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
-
-const knex = require('knex')({
-  client: 'sqlite3',
-  connection: {
-    filename: './src/db.sqllite3.db',
-  },
-});
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
@@ -78,11 +71,6 @@ app.on('ready', async () => {
     }
   }
   createWindow();
-
-  const selectedRows = await knex('variable')
-    .select('*')
-    .first();
-
 });
 
 // Exit cleanly on request from parent process in development mode.
@@ -100,9 +88,10 @@ if (isDevelopment) {
   }
 }
 
-// 主进程
-ipcMain.on('port', (e, msg) => {
-  const [port] = e.ports;
-  console.log(port);
-  // ...
+// 处理前端发送消息 并返回
+const service = require('@/background/serviceConfig');
+
+ipcMain.handle('some-name', async (event, someArgument) => {
+  const result = await service.helloWorldService.speak();
+  return result;
 });

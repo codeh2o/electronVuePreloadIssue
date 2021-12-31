@@ -16,12 +16,13 @@ export default {
     HelloWorld,
   },
   mounted() {
-    setTimeout(() => {
-      // eslint-disable-next-line no-undef
-      const { port1 } = new MessageChannel();
-      // eslint-disable-next-line no-undef
-      ipcRenderer.postMessage('port', { message: 'hello' }, [port1]);
-    }, 10);
+    // eslint-disable-next-line no-undef
+    ipcRenderer.invoke('some-name', {
+      data: 'some data',
+    })
+      .then((result) => {
+        console.log(result);
+      });
   },
 };
 </script>
