@@ -10,16 +10,17 @@ class Model {
 
   #data;
 
-  #parameters;
+  #parametersSignature;
 
   /**
    * 模型构造函数
    * @param {String} id
    * @param {ModelTypeEnum} modelTypeEnum
    * @param {Object} data
-   * @param {Parameters} parameters
+   * @param {ParametersSignature
+   * } parametersSignature
    */
-  constructor(id, modelTypeEnum, data, parameters) {
+  constructor(id, modelTypeEnum, data, parametersSignature) {
     /**
      * 模型名称
      * @type {String}
@@ -39,7 +40,7 @@ class Model {
      * 模型参数类型
      * @type {Parameters}
      */
-    this.#parameters = parameters;
+    this.#parametersSignature = parametersSignature;
   }
 
   /**
@@ -48,7 +49,7 @@ class Model {
    */
   run(parameters) {
     // 传入的参数与模型参数类型是否相同
-    if (!this.#parameters.isSame(parameters)) {
+    if (!this.#parametersSignature.isFullyCompatible(parameters)) {
       throw new ModelTypeNotCompatibleException();
     }
 

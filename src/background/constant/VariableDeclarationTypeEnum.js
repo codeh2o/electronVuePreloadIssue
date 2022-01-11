@@ -1,9 +1,9 @@
 /**
  * 变量类型jsType枚举
- * @type {{TABLE: string, NUMBER: string, STRING: string}}
+ * @type {{TABLE: {name: string, id: string}, Primitive: {name: string, id: string}}}
  */
 const VariableDeclarationTypeEnum = {
-  STRING: {
+  Primitive: {
     id: 'Primitive',
     name: '数据',
   },

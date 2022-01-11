@@ -11,7 +11,16 @@ class VariableDeclarationService {
    * @returns {Promise<void>}
    */
   async declarePrimitiveVariable(id, modelId) {
-    await variableModel.add(`${modelId}.${id}`, VariableDeclarationTypeEnum.STRING, null, modelId);
+    await variableModel.add(`${modelId}.${id}`, VariableDeclarationTypeEnum.Primitive, null, modelId);
+  }
+
+  /**
+   * 申明基本类型变量
+   * @param id
+   * @returns {Promise<void>}
+   */
+  async declareTableVariable(id, modelId) {
+    await variableModel.add(`${modelId}.${id}`, VariableDeclarationTypeEnum.TABLE, null, modelId);
   }
 
   /**
