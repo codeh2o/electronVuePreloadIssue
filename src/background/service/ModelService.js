@@ -14,7 +14,7 @@ class ModelService {
    * @returns {Promise<void>}
    */
   async declareJsModel(id, parameters, data) {
-    await modeModel.add(id, ModelTypeEnum.PROGRAM, paramters, data);
+    await modeModel.add(id, ModelTypeEnum.PROGRAM, parameters, data);
   }
 
   /**

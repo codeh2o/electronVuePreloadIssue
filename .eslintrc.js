@@ -15,7 +15,11 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'global-require': 'off',
     'max-len': 'off',
-    'class-methods-use-this': 'off'
+    'class-methods-use-this': 'off',
+    'vue/no-parsing-error': 'off',
+    'no-underscore-dangle': 'off',
+    'no-unused-expressions': 'off',
+    'consistent-return': 'off'
 
   },
   overrides: [

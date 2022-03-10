@@ -1,9 +1,9 @@
-const variableModel = require('../model/VariableDeclarationModel');
+// const variableModel = require('../model/VariableDeclarationModel');
 
 class HelloWorldService {
   // eslint-disable-next-line class-methods-use-this
   speak() {
-    return variableModel.selectOne();
+    return 'hello world';
   }
 }
 
